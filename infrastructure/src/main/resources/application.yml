@@ -1,0 +1,21 @@
+server:
+  port: 7071
+  servlet:
+    context-path: /prices-itx-service
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:prices
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  liquibase:
+    enabled: true
+    change-log: classpath:bd/liquibase-changelog.yml
+  sql:
+    init:
+      mode: always
