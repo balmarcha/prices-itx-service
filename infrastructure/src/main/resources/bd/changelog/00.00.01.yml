@@ -1,0 +1,130 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_brand_table
+      author: balmarcha
+      changes:
+        - createTable:
+            tableName: brands
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create_table_products
+      author: balmarcha
+      changes:
+        - createTable:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create_table_prices_list
+      author: balmarcha
+      changes:
+        - createTable:
+            tableName: prices_list
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create_table_prices
+      author: balmarcha
+      changes:
+        - createTable:
+            tableName: prices
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: brand_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_price_brand
+                    references: brands(id)
+              - column:
+                  name: start_date
+                  type: VARCHAR(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: end_date
+                  type: VARCHAR(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price_list_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_price_price_list
+                    references: prices_list(id)
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_price_product
+                    references: products(id)
+              - column:
+                  name: priority
+                  type: SMALLINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: DECIMAL(5,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency
+                  type: VARCHAR2(3)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: insert_data
+      author: balmarcha
+      changes:
+        - loadData:
+            file: "bd/data/insert_brands.csv"
+            tableName: brands
+        - loadData:
+            file: "bd/data/insert_prices_list.csv"
+            tableName: prices_list
+        - loadData:
+            file: "bd/data/insert_products.csv"
+            tableName: products
+        - loadData:
+            file: "bd/data/insert_prices.csv"
+            tableName: prices
