@@ -14,6 +14,10 @@
     <name>infrastructure</name>
     <description>infrastructure</description>
 
+    <properties>
+        <hibernate-jpamodelgen.version>6.6.9.Final</hibernate-jpamodelgen.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>es.bxg.ps</groupId>
@@ -56,7 +60,7 @@
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>6.6.9.Final</version>
+            <version>${hibernate-jpamodelgen.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -98,10 +102,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>23</source>
-                    <target>23</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
@@ -118,6 +122,11 @@
                             <artifactId>hibernate-jpamodelgen</artifactId>
                             <version>6.6.9.Final</version>
                         </path>
+                        <annotationProcessorPath>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-jpamodelgen</artifactId>
+                            <version>${hibernate-jpamodelgen.version}</version>
+                        </annotationProcessorPath>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
