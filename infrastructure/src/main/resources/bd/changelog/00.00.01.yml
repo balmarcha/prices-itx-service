@@ -75,12 +75,12 @@ databaseChangeLog:
                     references: brands(id)
               - column:
                   name: start_date
-                  type: VARCHAR(30)
+                  type: TIMESTAMP
                   constraints:
                     nullable: false
               - column:
                   name: end_date
-                  type: VARCHAR(30)
+                  type: TIMESTAMP
                   constraints:
                     nullable: false
               - column:
