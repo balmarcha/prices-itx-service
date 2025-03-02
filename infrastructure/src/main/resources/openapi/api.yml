@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: API de ejemplo
+  description: API para gestionar productos y sucursales
+  version: 1.0.0
+paths:
+  /prices:
+    get:
+      operationId: findByDate
+      summary: Obtener un precio de un producto y una cadena en base a la fecha dada
+      parameters:
+        - name: brandId
+          in: query
+          required: true
+          description: Identificador de cadena
+          schema:
+            type: integer
+            format: int64
+        - name: productId
+          in: query
+          required: true
+          description: Identificador de producto
+          schema:
+            type: integer
+            format: int64
+        - name: date
+          in: query
+          required: true
+          description: Fecha de aplicación
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Precio del producto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Price'
+        '404':
+          description: No hay precio establecido para el producto en la fecha indicada
+
+components:
+  schemas:
+    Price:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        priority:
+          type: integer
+          format: int32
+        price:
+          type: number
+          format: decimal
+        currency:
+          type: string
+        productId:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int64
+        priceList:
+          $ref: '#/components/schemas/PriceList'
+    PriceList:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
