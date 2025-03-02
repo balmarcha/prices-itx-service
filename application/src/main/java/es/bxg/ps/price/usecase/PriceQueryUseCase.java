@@ -25,6 +25,8 @@ public class PriceQueryUseCase {
         .date(date)
         .build());
 
-    return byFilters.stream().findFirst().orElseThrow(PriceNotFoundException::new);
+    return byFilters.stream()
+        .findFirst()
+        .orElseThrow(() -> new PriceNotFoundException("No hay precio definido para esa fecha"));
   }
 }
