@@ -1,6 +1,6 @@
 package es.bxg.ps.price.adapters.mapper;
 
-import es.bxg.ps.common.IGenericDtoMapper;
+import es.bxg.ps.common.mapper.IGenericDtoMapper;
 import es.bxg.ps.model.PriceDto;
 import es.bxg.ps.price.model.Price;
 import es.bxg.ps.pricelist.adapters.mapper.IPriceListDtoMapper;

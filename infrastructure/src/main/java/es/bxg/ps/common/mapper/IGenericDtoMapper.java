@@ -1,4 +1,4 @@
-package es.bxg.ps.common;
+package es.bxg.ps.common.mapper;
 
 import java.util.List;
 
