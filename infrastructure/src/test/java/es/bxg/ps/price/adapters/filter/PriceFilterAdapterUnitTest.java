@@ -15,7 +15,7 @@ import org.springframework.data.jpa.domain.Specification;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class PriceFilterAdapterTest {
+public class PriceFilterAdapterUnitTest {
 
   @ParameterizedTest
   @MethodSource("strategyDataProvider")

@@ -2,7 +2,6 @@ package es.bxg.ps.price.rest;
 
 import es.bxg.ps.model.PriceDto;
 import es.bxg.ps.price.adapters.mapper.IPriceDtoMapper;
-import es.bxg.ps.price.exception.PriceNotFoundException;
 import es.bxg.ps.price.model.Price;
 import es.bxg.ps.price.usecase.PriceQueryUseCase;
 import org.junit.jupiter.api.Assertions;
@@ -17,10 +16,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.time.OffsetDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @ExtendWith(MockitoExtension.class)
-class PriceQueryRestTest {
+class PriceQueryRestUnitTest {
 
   @InjectMocks
   private PriceQueryRest priceQueryRest;

@@ -15,14 +15,11 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @ExtendWith(MockitoExtension.class)
-class PriceJpaQueryAdapterTest {
+class PriceJpaQueryAdapterUnitTest {
 
   @InjectMocks
   private PriceJpaQueryAdapter priceJpaQueryAdapter;
