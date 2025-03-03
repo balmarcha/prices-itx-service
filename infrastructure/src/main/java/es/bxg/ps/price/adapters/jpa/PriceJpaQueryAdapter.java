@@ -26,6 +26,6 @@ public class PriceJpaQueryAdapter implements IPriceQueryPort {
   @Override
   public List<Price> findByFilters(PriceFilter filter) {
     return mapper.toPojo(
-        repository.findAll(jpaFilter.buildSpecification(filter)));
+        repository.findAll(jpaFilter.buildSpecification(filter), jpaFilter.getSort(filter)));
   }
 }

@@ -1,5 +1,6 @@
 package es.bxg.ps.price.usecase;
 
+import es.bxg.ps.common.filter.SortDirection;
 import es.bxg.ps.price.exception.PriceNotFoundException;
 import es.bxg.ps.price.filter.PriceFilter;
 import es.bxg.ps.price.model.Price;
@@ -23,6 +24,8 @@ public class PriceQueryUseCase {
         .brandId(brandId)
         .productId(productId)
         .date(date)
+        .field("priority")
+        .direction(SortDirection.DESC)
         .build());
 
     return byFilters.stream()
