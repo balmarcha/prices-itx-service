@@ -3,6 +3,8 @@ info:
   title: API de ejemplo
   description: API para gestionar productos y sucursales
   version: 1.0.0
+servers:
+  - url: /api/v1
 paths:
   /prices:
     get:

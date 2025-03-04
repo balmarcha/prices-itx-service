@@ -23,6 +23,6 @@ spring:
       mode: always
 springdoc:
   api-docs:
-    path: /v1/api-docs
+    path: /api
   swagger-ui:
     path: /swagger-ui.html
